@@ -40,7 +40,7 @@ class MoneyTrackingApp
                 case "1":
                     AddTransaction();
                     FileManager.SaveTransactionsToFile(filePath, moneyTransactions);
-                    //Console.WriteLine("Transaction added successfully.");
+                    
                     break;
                 case "2":
                     ViewTransactions();
@@ -48,7 +48,7 @@ class MoneyTrackingApp
                 case "3":
                     UpdateTransaction();
                     FileManager.SaveTransactionsToFile(filePath, moneyTransactions);
-                   // Console.WriteLine("Transaction updated successfully.");
+                   
                     break;
                 case "4":
                     RemoveTransaction();
@@ -368,50 +368,13 @@ class MoneyTrackingApp
         Console.ReadLine(); // Pause before returning to main menu
 
     }
-    /*
-    static void ViewExpensesOrIncomes(List<Transaction> transactions)
-    {
-        Console.WriteLine("\nView Expenses or Incomes:");
-        Console.WriteLine("1. View Expenses");
-        Console.WriteLine("2. View Incomes");
-        Console.Write("Choose an option (1-2): ");
-        string option = Console.ReadLine();
 
-        if (option == "1")
-        {
-            ViewFilteredTransactions(transactions, isExpense: true);
-        }
-        else if (option == "2")
-        {
-            ViewFilteredTransactions(transactions, isExpense: false);
-        }
-        else
-        {
-            Console.WriteLine("Invalid option. Returning to main menu.");
-        }
-
-        Console.WriteLine("Press Enter to continue...");
-        Console.ReadLine();
-    }
-    */
     static decimal CalculateCurrentAmount()
     {
         return moneyTransactions.Sum(t => t.IsWithdrawal ? -decimal.Parse(t.Amount) : decimal.Parse(t.Amount));
     }
 
 
-    /*
-    public void DisplayTransactionList(List<Transaction> transactions)
-    {
-        for (int i = 0; i < transactions.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}. Date: {transactions[i].Date.ToString("yyyy-MM-dd")}, " +
-                              $"Amount: {transactions[i].Amount}, " +
-                              $"Type: {(transactions[i].IsWithdrawal ? "Expense" : "Income")}, " +
-                              $"Source: {transactions[i].Source}");
-        }
-    }
-    */
 }
    
 
